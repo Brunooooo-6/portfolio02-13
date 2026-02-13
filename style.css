@@ -1,0 +1,160 @@
+/* 1. Global Reset & Theme */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #000000;
+    color: #ffffff;
+    font-family: 'Inter', Arial, sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;       
+}
+
+/* 2. Flexbox Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    background-color: #000000;
+    border-bottom: 1px solid #333;
+    width: 100%;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 40px;
+}
+
+.nav-links a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: opacity 0.3s;
+}
+
+.nav-links a:hover {
+    opacity: 0.7;
+}
+
+/* 3. Layout Container */
+.container {
+    padding: 60px 5%;
+    max-width: 1400px; 
+    margin: 0 auto;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+/* 新增：分区标题样式 */
+.section-title {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #666;
+    margin: 40px 0 20px 0;
+    border-bottom: 1px solid #333;
+    padding-bottom: 10px;
+}
+
+/* 4. 大图展示核心样式 (index.html) */
+.hero-image-container {
+    width: 100%;
+    margin-top: 20px;
+    border: 1px solid #333;
+}
+
+.max-hero-image {
+    width: 100%;      
+    height: auto;     
+    display: block;   
+    object-fit: cover;
+}
+
+/* 5. Works Grid & iframe 适配 (work.html) */
+.work-grid {
+    display: grid;
+    /* 核心修改：利用 CSS Grid 满足课程要求 */
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    gap: 40px;
+}
+
+.work-item {
+    border: 1px solid #333;
+    background: #111111;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.work-item:hover {
+    border-color: #ffffff;
+    transform: translateY(-5px);
+}
+
+/* 比例优化：适配 800x400 画布 (400/800 = 50%) */
+.canvas-container {
+    width: 100%;
+    position: relative;
+    padding-top: 50%; 
+    background: #000;
+    border-bottom: 1px solid #333;
+}
+
+iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    z-index: 10;
+    pointer-events: auto; 
+}
+
+.work-info {
+    padding: 25px;
+    background: #111111;
+}
+
+.work-info h3 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.work-info p {
+    font-size: 0.95rem;
+    color: #aaaaaa;
+}
+
+/* 6. About Section */
+.section-margin { margin-bottom: 50px; }
+h2 { font-size: 1.8rem; border-bottom: 1px solid #333; padding-bottom: 10px; margin: 20px 0; }
+ul { list-style: square; margin-left: 20px; }
+
+/* 手机端适配 */
+@media (max-width: 600px) {
+    .work-grid {
+        grid-template-columns: 1fr;
+    }
+    h1 { font-size: 2rem; }
+    .canvas-container {
+        padding-top: 66.66%; /* 手机端稍微调高一点比例 */
+    }
+}
